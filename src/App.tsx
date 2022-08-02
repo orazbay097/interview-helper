@@ -1,23 +1,34 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { CssBaseline, AppBar, createTheme, ThemeProvider, Typography } from '@mui/material';
 
-import logo from './logo.svg';
 import './App.css';
 
 import Questions from './modules/questions';
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+
+  },
+});
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+
+      <AppBar position="static" sx={{ p: 2 }}>
+        <Typography variant="h5">
+          Interview helper
+        </Typography>
+      </AppBar>
 
       <Routes>
         <Route path="/questions/*" element={<Questions />} />
 
         <Route path="*" element={<Navigate to="/questions" replace />} />
       </Routes>
-    </div>
+    </ThemeProvider>
   );
 }
 
