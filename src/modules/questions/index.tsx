@@ -4,9 +4,6 @@ import QuestionsCreate from './views/questionsCreate';
 
 function Questions() {
     return (
-        <div className="questions">
-            Questions
-
             <Routes>
                 <Route path="" element={<QuestionsList />} />
 
@@ -14,7 +11,6 @@ function Questions() {
                 
                 <Route path="*" element={<Navigate to="" replace />} />
             </Routes>
-        </div>
     );
 }
 
